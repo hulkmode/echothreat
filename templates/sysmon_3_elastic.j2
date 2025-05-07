@@ -1,0 +1,64 @@
+{# 
+  Template: sysmon_3_elastic.j2
+  Author: Hal Denton
+  Description: Simulates Network Connection events (Event ID 3)
+  Format: ECS-aligned JSON
+#}
+
+
+{
+  "@timestamp": "{{ timestamp }}",
+  "event": {
+    "kind": "event",
+    "category": {{ ["network"] | tojson }},
+    "type": {{ ["connection"] | tojson }},
+    "action": "Network connection detected",
+    "code": "3",
+    "created": "{{ timestamp }}",
+    "dataset": "windows.sysmon_operational",
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "name": "{{ computer }}"
+  },
+  "agent": {
+    "type": "filebeat",
+    "name": "{{ computer }}"
+  },
+  "user": {
+      "name": "{{ user }}",
+      "domain": "{{ domain }}"
+  },
+  "process": {
+    "pid": "{{ process_id }}",
+    "executable": "{{ image }}",
+    "entity_id": "{{ process_guid }}",
+    "user": {
+      "name": "{{ user }}"
+    }
+  },
+  "network": {
+    "transport": "{{ protocol }}",
+    "direction": "{{ 'outbound' if initiated == 'true' else 'inbound' }}",
+    "protocol": "{{ protocol }}"
+  },
+  "source": {
+    "ip": "{{ source_ip }}",
+    "port": "{{ source_port }}",
+    "domain": "{{ source_hostname }}"
+  },
+  "destination": {
+    "ip": "{{ destination_ip }}",
+    "port": "{{ destination_port }}",
+    "domain": "{{ destination_hostname }}"
+  },
+  "winlog": {
+    "event_id": 3,
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "sim": {
+    "host_name": "{{ rand('host') }}",
+    "agent_name": "{{ rand('host') }}"
+  },
+  "event.original": "<Event><System><EventID>3</EventID></System></Event>"
+}

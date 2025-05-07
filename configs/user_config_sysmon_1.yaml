@@ -1,0 +1,14 @@
+timestamp: "2025-04-18T04:20:00.000Z"
+computer: "DE-Windows-01"
+
+process_guid: "{22222222-3333-4444-5555-666666666666}"
+process_id: "1234"
+image: "C:\\Windows\\System32\\cmd.exe"
+command_line: "cmd.exe /c whoami"
+current_directory: "C:\\Windows\\System32"
+
+parent_process_id: "456"
+parent_image: "C:\\Windows\\explorer.exe"
+parent_command_line: "explorer.exe"
+user: "TommyBoy"
+domain: "deathgroup-labs"

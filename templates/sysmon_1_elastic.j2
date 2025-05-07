@@ -1,0 +1,57 @@
+{# 
+  Template: sysmon_1_elastic.j2
+  Author: Hal Denton
+  Description: Simulates Process Execution events (Event ID 1)
+  Format: ECS-aligned JSON
+#}
+
+
+{
+  "@timestamp": "{{ timestamp }}",
+  "event": {
+    "kind": "event",
+    "category": {{ ["process"] | tojson }},
+    "type": {{ ["start"] | tojson }},
+    "action": "Process Create",
+    "code": "1",
+    "created": "{{ timestamp }}",
+    "dataset": "windows.sysmon_operational",
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "name": "{{ computer }}"
+  },
+  "agent": {
+    "type": "filebeat",
+    "name": "{{ computer }}",
+    "version": "8.17.4"
+  },
+  "user": {
+      "name": "{{ user }}",
+      "domain": "{{ domain }}"
+  },
+  "process": {
+    "pid": "{{ process_id }}",
+    "executable": "{{ image }}",
+    "command_line": "{{ command_line }}",
+    "working_directory": "{{ current_directory }}",
+    "entity_id": "{{ process_guid }}",
+    "user": {
+      "name": "{{ user }}"
+    },
+    "parent": {
+      "pid": "{{ parent_process_id }}",
+      "executable": "{{ parent_image }}",
+      "command_line": "{{ parent_command_line }}"
+    }
+  },
+  "winlog": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "sim": {
+    "host_name": "{{ rand('host') }}",
+    "agent_name": "{{ rand('host') }}"
+  },
+  "event.original": "<Event><System><EventID>1</EventID></System></Event>"
+}

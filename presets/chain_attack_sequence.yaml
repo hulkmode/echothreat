@@ -1,0 +1,30 @@
+chain:
+  - event_id: 11
+    throttle: 1
+    config_override: "configs/user_config_sysmon_11.yaml"
+    template_format: "elastic"
+    log_source: "sysmon"
+    count: 1
+
+  - event_id: 3
+    throttle: 1
+    config_override: "configs/user_config_sysmon_3.yaml"
+    template_format: "elastic"
+    log_source: "sysmon"
+    count: 1
+
+  - event_id: 4624
+    throttle: .2
+    config_override: "configs/user_config_security_4624.yaml"
+    template_format: "elastic_rand_host"
+    log_source: "security"
+    count: 30
+
+  - event_id: 4697
+    throttle: 1
+    config_override: "configs/user_config_security_4697.yaml"
+    template_format: "elastic_rand_servicename"
+    log_source: "security"
+    count: 1
+
+ 

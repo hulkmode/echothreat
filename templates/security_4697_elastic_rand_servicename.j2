@@ -1,0 +1,53 @@
+{# 
+  Template: security_4697_elastic_rand_servicename.j2
+  Author: Hal Denton
+  Description: Simulates new service creation events (Event ID 4697) with randomized service names
+  Format: ECS-aligned JSON
+#}
+
+
+{% set sim_host = rand('host') %}
+
+{
+  "@timestamp": "{{ timestamp }}",
+  "event": {
+    "kind": "event",
+    "category": {{ ["configuration"] | tojson }},
+    "type": {{ ["creation"] | tojson }},
+    "action": "Service Installed",
+    "code": "4697",
+    "created": "{{ timestamp }}",
+    "dataset": "windows.security",
+    "provider": "Microsoft-Windows-Security-Auditing"
+  },
+  "sim": {
+    "host_name": "{{ sim_host }}",
+    "agent_name": "{{ sim_host }}"
+  },
+  "host": {
+    "name": "{{ sim_host }}"
+  },
+  "agent": {
+    "type": "filebeat",
+    "name": "{{ sim_host }}"
+  },
+  "user": {
+    "id": "S-1-5-18",
+    "name": "{{ user }}",
+    "domain": "{{ domain }}"
+  },
+  "service": {
+    "name": "{{ rand('alpha', 6) }}",
+    "path": "C:\\{{ rand('alpha', 6) }}.{{ 'exe' if random() < 0.5 else 'bat' }}",
+    "type": "Own Process",
+    "start_type": "Auto",
+    "account": {
+      "name": "LocalSystem"
+    }
+  },
+  "winlog": {
+    "event_id": 4697,
+    "channel": "Security"
+  },
+  "event.original": "<Event><System><EventID>4697</EventID></System></Event>"
+}

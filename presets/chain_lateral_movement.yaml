@@ -1,0 +1,24 @@
+chain:
+  - event_id: 4624
+    delay: 1
+    config_override: "configs/user_config_security_4624.yaml"
+    template_format: "elastic_rand_host"
+    log_source: "security"
+
+  - event_id: 1
+    delay: 1
+    config_override: "configs/user_config_sysmon_1.yaml"
+    template_format: "elastic"
+    log_source: "sysmon"
+
+  - event_id: 3
+    delay: 1
+    config_override: "configs/user_config_sysmon_3.yaml"
+    template_format: "elastic"
+    log_source: "sysmon"
+
+  - event_id: 11
+    delay: 1
+    config_override: "configs/user_config_sysmon_11.yaml"
+    template_format: "elastic"
+    log_source: "sysmon"

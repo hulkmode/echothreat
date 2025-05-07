@@ -1,0 +1,55 @@
+{# 
+  Template: sysmon_11_elastic.j2
+  Author: Hal Denton
+  Description: Simulates File Creation events (Event ID 11)
+  Format: ECS-aligned JSON
+#}
+
+
+{
+  "@timestamp": "{{ timestamp }}",
+  "event": {
+    "kind": "event",
+    "category": {{ ["file"] | tojson }},
+    "type": {{ ["creation"] | tojson }},
+    "action": "File Create",
+    "code": "11",
+    "created": "{{ timestamp }}",
+    "dataset": "windows.sysmon_operational",
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "name": "{{ computer }}"
+  },
+  "agent": {
+    "type": "filebeat",
+    "name": "{{ computer }}"
+  },
+  "user": {
+      "name": "{{ user }}",
+      "domain": "{{ domain }}"
+  },
+  "process": {
+    "pid": "{{ process_id }}",
+    "executable": "{{ image }}",
+    "entity_id": "{{ process_guid }}",
+    "user": {
+      "name": "{{ user }}"
+    }
+  },
+  "file": {
+    "path": "{{ target_file_path }}",
+    "directory": "{{ file_directory }}",
+    "extension": "{{ file_extension }}",
+    "name": "{{ file_name }}"
+  },
+  "winlog": {
+    "event_id": 11,
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "sim": {
+    "host_name": "{{ rand('host') }}",
+    "agent_name": "{{ rand('host') }}"
+  },
+  "event.original": "<Event><System><EventID>11</EventID></System></Event>"
+}

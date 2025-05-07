@@ -1,0 +1,51 @@
+{# 
+  Template: security_4624_elastic.j2
+  Author: Hal Denton
+  Description: Simulates successful login events (Event ID 4624)
+  Format: ECS-aligned JSON
+#}
+
+{
+  "@timestamp": "{{ timestamp }}",
+  "event": {
+    "kind": "event",
+    "category": {{ ["authentication"] | tojson }},
+    "type": {{ ["start"] | tojson }},
+    "action": "logon",
+    "code": "4624",
+    "created": "{{ timestamp }}",
+    "dataset": "windows.security",
+    "provider": "Microsoft-Windows-Security-Auditing"
+  },
+  "sim": {
+    "host_name": "{{ computer }}",
+    "agent_name": "{{ computer }}"
+  },
+  "host": {
+    "name": "{{ computer }}"
+  },
+  "agent": {
+    "type": "filebeat",
+    "name": "{{ computer }}"
+  },
+  "user": {
+    "name": "{{ user }}",
+    "domain": "{{ domain }}"
+  },
+  "source": {
+    "ip": "{{ source_ip }}",
+    "port": "{{ rand('digit', 5) }}"
+  },
+  "logon": {
+    "logon_type": "{{ logon_type }}",
+    "logon_process": "{{logon_process}}",
+    "auth_package": "{{auth_package}}",
+    "target_user": "{{ user }}",
+    "target_domain": "{{ domain }}"
+  },
+  "winlog": {
+    "event_id": 4624,
+    "channel": "Security"
+  },
+  "event.original": "<Event><System><EventID>4624</EventID></System></Event>"
+}

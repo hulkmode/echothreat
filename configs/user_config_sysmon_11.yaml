@@ -1,0 +1,13 @@
+timestamp: "2025-04-18T04:50:00.000Z"
+computer: "DE-Windows-01"
+
+process_guid: "{abcd1234-0000-0000-1111-000000000001}"
+process_id: "5678"
+image: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+
+target_file_path: "C:\\Users\\TommyBoy\\Downloads\\evil.zip"
+file_name: "evil.zip"
+file_extension: "zip"
+file_directory: "C:\\Users\\TommyBoy\\Downloads"
+user: "TommyBoy"
+domain: "deathgroup-labs"

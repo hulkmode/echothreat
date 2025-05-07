@@ -1,0 +1,6 @@
+timestamp: "2025-04-29T08:00:00.000Z"
+computer: "DE-Windows-01"
+
+user: "TommyBoy"
+domain: "deathgroup-labs"
+# service fields are randomized inside the template (service.name, service.path)

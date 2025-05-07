@@ -1,0 +1,10 @@
+timestamp: "2025-04-18T04:40:00.000Z"
+computer: "DE-DC01"
+
+user: "TommyBoy"
+domain: "deathgroup-labs"
+source_ip: "192.168.1.50"
+source_port: "49210"
+logon_type: "3"
+logon_process: "Kerberos"
+auth_package: "Kerberos"
