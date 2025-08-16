@@ -47,7 +47,10 @@
   },
   "winlog": {
     "event_id": 4697,
-    "channel": "Security"
+    "channel": "Security",
+    "event_data": {
+      "ServiceFileName":"C:\\{{ rand('alpha', 6) }}.{{ 'exe' if random() < 0.5 else 'bat' }}"
+    }
   },
   "event.original": "<Event><System><EventID>4697</EventID></System></Event>"
 }
