@@ -1,0 +1,15 @@
+timestamp: "2025-08-16T21:46:18.201Z"
+computer: "DE-Windows-01"
+
+process_guid: "{aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee}"
+process_id: "6864"
+image: "C:\\Windows\\System32\\svchost.exe"
+
+# DNS-specific fields
+query_name: "10.10.69.21"          # can be a domain (e.g., "wpad") or an IP address
+query_type: "A"                    # record type (A, AAAA, CNAME, etc.)
+query_status: "9003"               # raw numeric status code
+query_status_text: "DNS_ERROR_RCODE_NAME_ERROR"
+
+user: "TommyBoy"
+domain: "deathgroup-labs"
