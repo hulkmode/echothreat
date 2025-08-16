@@ -1,0 +1,63 @@
+{# 
+  Template: sysmon_22_elastic.j2
+  Author: Hal Denton
+  Description: Simulates DNS query events (Sysmon Event ID 22)
+  Format: ECS-aligned JSON
+#}
+
+{
+  "@timestamp": "{{ timestamp }}",
+  "event": {
+    "kind": "event",
+    "category": {{ ["network"] | tojson }},
+    "type": {{ ["connection", "protocol", "info"] | tojson }},
+    "action": "DNSEvent (DNS query)",
+    "code": "22",
+    "created": "{{ timestamp }}",
+    "dataset": "windows.sysmon_operational",
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "name": "{{ computer }}"
+  },
+  "agent": {
+    "type": "filebeat",
+    "name": "{{ computer }}"
+  },
+  "user": {
+    "name": "{{ user }}",
+    "domain": "{{ domain }}"
+  },
+  "process": {
+    "pid": "{{ process_id }}",
+    "executable": "{{ image }}",
+    "entity_id": "{{ process_guid }}",
+    "user": {
+      "name": "{{ user }}"
+    }
+  },
+  "network": {
+    "protocol": "dns"
+  },
+  "dns": {
+    "question": {
+      "name": "{{ query_name }}",     {# NOTE: can be a domain or an IP per your use case #}
+      "type": "{{ query_type | default('A') }}"
+    }
+  },
+  "sysmon": {
+    "dns": {
+      "status_code": "{{ query_status }}",                     {# e.g., 9003 #}
+      "status": "{{ query_status_text | default('DNS_ERROR_RCODE_NAME_ERROR') }}"
+    }
+  },
+  "winlog": {
+    "event_id": 22,
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "sim": {
+    "host_name": "{{ rand('host') }}",
+    "agent_name": "{{ rand('host') }}"
+  },
+  "event.original": "<Event><System><EventID>22</EventID></System></Event>"
+}
