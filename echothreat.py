@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
-'''
- _____     _            _______ _                    _   
-|  ___|   | |          / /_   _| |                  | |
-| |__  ___| |__   ___ / /  | | | |__  _ __ ___  __ _| |_
-|  __|/ __| '_ \ / _ < <   | | | '_ \| '__/ _ \/ _` | __|
-| |__| (__| | | | (_) \ \  | | | | | | | |  __/ (_| | |_
-\____/\___|_| |_|\___/ \_\ \_/ |_| |_|_|  \___|\__,_|\__|
-
-Author: Hal Denton and AI
-Description: Echo<Threat is a modular synthetic log generation tool designed for detection engineering and simulation-based verification workflows.
-Date: 2025-05-07
-Version: 1.0  
-
-'''
+#'''
+# _____     _            _______ _                    _   
+#|  ___|   | |          / /_   _| |                  | |
+#| |__  ___| |__   ___ / /  | | | |__  _ __ ___  __ _| |_
+#|  __|/ __| '_ \ / _ < <   | | | '_ \| '__/ _ \/ _` | __|
+#| |__| (__| | | | (_) \ \  | | | | | | | |  __/ (_| | |_
+#\____/\___|_| |_|\___/ \_\ \_/ |_| |_|_|  \___|\__,_|\__|
+#
+#Author: Hal Denton and AI
+#Description: Echo<Threat is a modular synthetic log generation tool designed for detection engineering and simulation-based verification workflows.
+#Date: 2025-05-07
+#Version: 1.0  
+#'''
 import argparse
 import sys
 import os
