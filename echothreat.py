@@ -10,7 +10,10 @@
 #Author: Hal Denton and AI
 #Description: Echo<Threat is a modular synthetic log generation tool designed for detection engineering and simulation-based verification workflows.
 #Date: 2025-05-07
-#Version: 1.0  
+#Version: 1.0 
+# Copyright (c) 2026 Hal Denton
+# Licensed under the Apache License 2.0 with the Commons Clause.
+# You may not sell this software. See the LICENSE file for details.
 #'''
 import argparse
 import sys
