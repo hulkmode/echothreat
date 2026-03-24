@@ -49,6 +49,22 @@ Originally released under **DEATHGroup Labs LLC**
 
 "Special thanks to Black Hills Information Security (BHIS) for supporting the detection engineering community and pushing verification standards forward."
 
+## License & Usage
+
+**EchoThreat** is built in public to support the detection engineering community. To ensure this tool remains freely available for practitioners while protecting the work from commercial exploitation, this project is licensed under the **Apache License 2.0 with the Commons Clause**.
+
+### What this means for you:
+* ✅ **You CAN use it for free:** Whether you are an individual researcher, a student, or a security team at a massive Fortune 500 corporation, you are completely free to use EchoThreat internally to generate logs, test your SIEM, and tune your detection logic. 
+* ✅ **You CAN modify it:** You are free to tweak the code, build new Jinja2 templates, and write custom YAML configs to fit your specific environment.
+* ❌ **You CANNOT sell it:** You are strictly prohibited from selling EchoThreat, hosting it as a paid commercial service, or wrapping this code into a proprietary, paid Enterprise Security product. 
+
+**Attribution:**
+If you use, modify, or share this project, you must preserve the original copyright notices and provide clear attribution to **Hal Denton** and the **EchoThreat** project. 
+
+*(Note: Prior to March 24, 2026, this project was licensed under the MIT License. All subsequent updates, features, and releases are governed by the Apache 2.0 + Commons Clause).*
+
+For the exact legal terms, please review the `LICENSE` file in the root of this repository.
+
 ## Tutorials
 ### Echo<Threat
 - [Introducing EchoThreat - Expedite Detection Engineering w/ Hal Denton](https://www.youtube.com/live/-fQFkrZAWmM)
